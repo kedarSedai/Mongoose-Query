@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const ejs = require('ejs');
 
-
 const port = process.env.PORT || 3000;
 
 const app = express();
@@ -17,7 +16,7 @@ const db = require('./setup/keys').db_url;
 
 mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
         .then(() => console.log('Connect'))
-        .then(err => console.log(err))
+        .catch(err => console.log(err))
 
 app.get('/', (req, res) => {
     res.send('Hi from Server');
